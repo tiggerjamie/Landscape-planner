@@ -66,7 +66,7 @@ export function getObjectDef(kind: string): ObjectDef<Record<string, unknown>> |
 }
 
 export function allObjectDefs(): ObjectDef<Record<string, unknown>>[] {
-  return [...registry.values()] as ObjectDef<Record<string, unknown>>[]
+  return [...registry.values()] as unknown as ObjectDef<Record<string, unknown>>[]
 }
 
 export const CATEGORY_LABELS: Record<ObjectCategory, string> = {

@@ -85,7 +85,9 @@ export function createDefaultScene(name = 'Backyard Plan'): Scene {
         headingDeg: 180,
       },
     ],
-    sun: { azimuthDeg: 145, elevationDeg: 48 },
+    // Not a real solar model — an angle that lights the yard legibly from the
+    // default viewing position. Adjustable per layout.
+    sun: { azimuthDeg: 40, elevationDeg: 52 },
     season: 'summer',
     snapIncrement: inch(6),
   }

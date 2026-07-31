@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { createDefaultScene } from '../model/defaults'
 import { uid, type Building, type Scene, type SceneObject, type Surface, type Viewpoint } from '../model/types'
 import type { Units } from '../units'
-import { loadActiveScene, readIndex, saveScene, type LayoutSummary } from './persistence'
+import { loadActiveScene, loadScene, readIndex, saveScene, type LayoutSummary } from './persistence'
 
 /**
  * One scene is the whole document. Every mutation goes through `update`, which
@@ -152,11 +152,8 @@ export const useSceneStore = create<SceneState>((set, get) => ({
   },
 
   openLayout: (id) => {
-    // Imported lazily to avoid a cycle through persistence at module load.
-    import('./persistence').then(({ loadScene }) => {
-      const scene = loadScene(id)
-      if (scene) get().replaceScene(scene)
-    })
+    const scene = loadScene(id)
+    if (scene) get().replaceScene(scene)
   },
 
   refreshLibrary: () => set({ library: readIndex() }),

@@ -13,7 +13,6 @@ export type Tool =
   | { kind: 'draw-lot' }
   | { kind: 'draw-surface'; material: string }
   | { kind: 'place-building'; buildingKind: 'own' | 'neighbor' }
-  | { kind: 'place-window'; buildingId: string }
   | { kind: 'place-object'; objectKind: string }
   | { kind: 'place-viewpoint' }
   | { kind: 'measure' }

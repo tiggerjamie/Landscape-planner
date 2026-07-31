@@ -1,4 +1,3 @@
-import { v2 } from '../../geometry/polygon'
 import { ft, inch } from '../../units'
 import {
   Box,
